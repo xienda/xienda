@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>Hello World</title>
+    <url>/2023/08/26/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="hello-hexo"><a href="#hello-hexo" class="headerlink" title="hello hexo"></a>hello hexo</h2><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>酒店管理系统</title>
+    <url>/2023/09/26/%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<p>#Code<br>#include&lt;stdio.h&gt;<br>#include&lt;stdlib.h&gt;<br>#include&lt;string.h&gt;<br>#include&lt;conio.h&gt;</p>
+<p>void welcome() &#x2F;&#x2F;欢迎<br>{</p>
+<pre><code>printf(&quot;**************************\n&quot;);
+printf(&quot;*****宾馆客房管理系统*****\n&quot;);
+printf(&quot;**************************\n&quot;);
+printf(&quot;**********功能选择********\n&quot;);
+printf(&quot;        1.查询房间\n&quot;);//
+printf(&quot;        2.入住房间\n&quot;);//
+printf(&quot;        3.修改房间\n&quot;);//
+printf(&quot;        4.房间入住情况\n&quot;);//
+printf(&quot;        5.保存信息\n&quot;);//
+printf(&quot;        6.读取信息\n&quot;);//
+printf(&quot;        7.入住人数\n&quot;);//
+printf(&quot;        8.退出房间\n&quot;);//
+printf(&quot;        0.退出系统\n&quot;);//
+</code></pre>
+<p>}<br>typedef struct _Guest  &#x2F;&#x2F;结构体 ，宾客信息<br>{<br>    char name[20]; &#x2F;&#x2F;姓名<br>    char sex[20];  &#x2F;&#x2F;性别<br>    int  fanghao;  &#x2F;&#x2F;房号 </p>
+<p>}Guest;</p>
+<p>typedef struct _Node  &#x2F;&#x2F;链表<br>{<br>    Guest gue; &#x2F;&#x2F;宾客<br>    struct _Node* pNext; &#x2F;&#x2F;指向下一个节点的指针 </p>
+<p>}Node;</p>
+<p>Node *g_pHead &#x3D; NULL;  &#x2F;&#x2F;头节点 </p>
+<p>void  log()  &#x2F;&#x2F;入住房间<br>{<br>    Node* pNewNode &#x3D; (Node*)malloc(sizeof(Node)); &#x2F;&#x2F;建一个新的节点，动态开辟内存 ，malloc返回一个<em>void指针，需要强转成</em>Node才能赋给pNewNode<br>    pNewNode-&gt;pNext &#x3D; NULL; &#x2F;&#x2F;将节点指向NULL。<br>    if (g_pHead &#x3D;&#x3D; NULL)   &#x2F;&#x2F;判断该头节点是否为NULL，如果为真，头节点为新创建的节点，如果为假，新节点指向头节点，头节点为新节点。头插法。<br>    {<br>        g_pHead &#x3D; pNewNode;</p>
+<pre><code>&#125;
+else                
+&#123;
+    
+    pNewNode-&gt;pNext = g_pHead;
+    g_pHead = pNewNode; 
+    
+    
+    
+&#125;
+printf(&quot;请输入房间号：\n&quot;);
+scanf(&quot;%d&quot;,&amp;pNewNode-&gt;gue.fanghao);
+
+printf(&quot;请输入性别：\n&quot;);
+scanf(&quot;%s&quot;,pNewNode-&gt;gue.sex);
+
+printf(&quot;请输入姓名：\n&quot;);
+scanf(&quot;%s&quot;,pNewNode-&gt;gue.name);
+
+printf(&quot;房间已入住成功,欢迎您的入住\n&quot;); 
+
+system(&quot;pause&quot;); 
+system(&quot;cls&quot;); //清屏 
+</code></pre>
+<p>}</p>
+<p>void PrintRoom()<br>{</p>
+<p> printf(“**************************\n”);<br> printf(“<em><strong><strong><strong>宾馆客房管理</strong></strong></strong></em>\n”);<br> printf(“**************************\n”);<br> printf(“房间号     性别       姓名\n”);<br> printf(“**************************\n”);</p>
+<p> &#x2F;&#x2F;你 </p>
+<p> Node* p &#x3D; g_pHead; &#x2F;&#x2F;从头节点开始<br> while(p!&#x3D;NULL)   &#x2F;&#x2F;不为空节点，就一直遍历<br> {</p>
+<p> printf(“%d         %s        %s\n”,p-&gt;gue.fanghao,p-&gt;gue.sex,p-&gt;gue.name);</p>
+<p> p &#x3D; p-&gt;pNext;<br> printf(“**************************\n”);<br> }<br>    system(“pause”);<br>    system(“cls”);<br>}</p>
+<p>void SaveRoom()  &#x2F;&#x2F;保存信息<br>{</p>
+<pre><code>//打开文件
+FILE* fp = fopen(&quot;D:\\dev\\room.dat&quot;,&quot;w+&quot;); 
+
+Node* p = g_pHead; //从头节点开始 
+while(p!=NULL)
+&#123;
+    fwrite(&amp;p-&gt;gue,1,sizeof(Guest),fp);
+    
+    
+    p = p-&gt;pNext;
+    
+&#125;
+
+fclose(fp); //关闭文件 
+printf(&quot;数据保存成功\n&quot;); 
+system(&quot;pause&quot;); 
+system(&quot;cls&quot;);
+</code></pre>
+<p>}</p>
+<p>void  ReadGuest()  &#x2F;&#x2F;加载数据<br>{<br>    &#x2F;&#x2F;打开文件<br>    FILE *fp &#x3D; fopen(“D:\dev\room.dat”,”r”); &#x2F;&#x2F;打开文件<br>    if (fp &#x3D;&#x3D; NULL)<br>    {<br>        printf(“打开文件失败\n”);</p>
+<pre><code>&#125;
+
+Guest Guest;
+while(fread(&amp;Guest,1,sizeof(Guest),fp)) //读取信息 
+&#123;   
+    //创建一个新节点
+    Node* pNewNode = (Node*)malloc(sizeof(Node)); 
+    
+    pNewNode-&gt;pNext = NULL;  //指向空 
+    
+    memcpy(pNewNode,&amp;Guest,sizeof(Guest)); //拷取信息 
+
+    
+    
+    if (g_pHead == NULL) 
+  &#123;
+    g_pHead = pNewNode;
+    
+  &#125;
+   else
+  &#123;
+    
+    pNewNode-&gt;pNext = g_pHead;
+    g_pHead = pNewNode; 
+    
+  &#125;
+    
+    
+&#125;
+
+fclose(fp);
+printf(&quot;加载数据成功\n&quot;);
+system(&quot;pause&quot;); 
+system(&quot;cls&quot;);
+</code></pre>
+<p>}</p>
+<p>int Sumguest()<br>{<br>    int count &#x3D; 0;<br>    &#x2F;&#x2F;遍历链表</p>
+<pre><code>Node* p = g_pHead;
+while(p!=NULL) 
+&#123;
+    count++;
+    p = p-&gt;pNext; 
+    
+    
+    
+ &#125; 
+system(&quot;pause&quot;); 
+system(&quot;cls&quot;);
+
+return count;
+</code></pre>
+<p> } </p>
+<p>Node* FindGuest()<br>{<br>    int guest;<br>    char Name[20];<br>    printf(“请输入查询的房间:\n”);<br>    scanf(“%d”,&amp;guest);</p>
+<pre><code>Node* p = g_pHead;
+while(p != NULL)
+&#123;
+    if (p-&gt;gue.fanghao == guest)
+    &#123;
+        
+        return p;
+    &#125;
+    
+    
+    p = p-&gt;pNext;
+    
+&#125;
+    
+return NULL;
+</code></pre>
+<p>}</p>
+<p>void ModifyRoom()<br>{<br>    int fanghao;<br>    printf(“请输入要修改的房间号：\n”);<br>    scanf(“%d”,&amp;fanghao);</p>
+<pre><code>Node* p = g_pHead;
+while(p != NULL)
+&#123;
+    
+    if (p-&gt;gue.fanghao == fanghao)
+    &#123;	
+        printf(&quot;请输入要修改的宾客 姓名 性别： \n&quot;);
+        scanf(&quot;%s %s&quot;,p-&gt;gue.name,p-&gt;gue.sex);
+        printf(&quot;修改成功&quot;);
+        break; 
+    &#125;
+    
+    p = p-&gt;pNext;
+&#125;
+if (p == NULL)
+&#123;
+    printf(&quot;没有找到该学生信息。\n&quot;);
+&#125;
+system(&quot;pause&quot;); 
+system(&quot;cls&quot;);
+</code></pre>
+<p> } </p>
+<p>void deleteguest()<br>{</p>
+<pre><code>int fanghao;
+printf(&quot;请输入要退房的房间号:\n&quot;);
+
+scanf(&quot;%d&quot;,&amp;fanghao);
+
+Node* p1,*p2;
+
+if(g_pHead-&gt;gue.fanghao == fanghao)	
+&#123;
+    p1 = g_pHead;
+    g_pHead = g_pHead-&gt;pNext;
+    free(p1);
+    return;
+&#125;
+Node* p = g_pHead;
+
+while(p-&gt;pNext != NULL)
+&#123;
+    if (p-&gt;pNext-&gt;gue.fanghao == fanghao)
+    &#123;
+        p2 = p-&gt;pNext;
+        p-&gt;pNext = p-&gt;pNext-&gt;pNext;
+        free(p2 );
+    system(&quot;pause&quot;); 
+    system(&quot;cls&quot;);
+    
+        return ; 
+    &#125;
+    p = p-&gt;pNext; 
+    
+    if (p-&gt;pNext == NULL)
+    &#123;
+        break;
+        
+    &#125;
+&#125;
+if (p-&gt;pNext == NULL)
+&#123;
+    printf(&quot;没有找到该客人&quot;);
+    
+&#125;
+    system(&quot;pause&quot;); 
+    system(&quot;cls&quot;);
+</code></pre>
+<p>}</p>
+<p>int main()<br>{</p>
+<pre><code>while (1)
+&#123;
+
+    welcome();
+
+    char ch = getch();
+    switch (ch)
+    &#123;
+    case&#39;1&#39;: //查询房间
+     &#123;
+     Node* p = FindGuest();
+     if (p!=NULL)
+     &#123;
+     	printf(&quot;性别：%s 姓名：%s\n&quot;,p-&gt;gue.sex,p-&gt;gue.name);
+     &#125;
+     else
+        printf(&quot;没有该客人\n&quot;);
+    system(&quot;pause&quot;); 
+    system(&quot;cls&quot;);
+        break;&#125;
+        
+        
+                
+    case&#39;2&#39;: //入住房间
+        log();
+        break;
+    case&#39;3&#39;: //修改房间
+        ModifyRoom();
+        break;	
+    case&#39;4&#39;: 
+     PrintRoom(); //房间入住情况 
+        break;
+        
+    case&#39;5&#39;: //保存信息 
+     SaveRoom();
+        break;
+            
+    case&#39;6&#39;: //读取信息 
+      ReadGuest();
+        break;
+    
+    case&#39;7&#39;: //入住人数 
+      printf(&quot;入住总人数：%d\n&quot;,Sumguest());
+        break;	
+        
+    case&#39;8&#39;: //退出房间 
+     deleteguest();
+        break;
+            
+    case&#39;0&#39;: //退出系统
+        printf(&quot;再见\n&quot;); 
+        return 0;
+    default:
+        printf(&quot;您的输入有问题，请重新输入\n&quot;);
+        system(&quot;pause&quot;);
+        system(&quot;cls&quot;);
+        break;
+    &#125;
+
+    getchar();
+&#125;
+</code></pre>
+<p>return 0;<br>}</p>
+]]></content>
+      <categories>
+        <category>项目</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+        <tag>系统</tag>
+      </tags>
+  </entry>
+</search>
